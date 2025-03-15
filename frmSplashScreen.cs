@@ -114,7 +114,21 @@ namespace HRMIS
             {
                 this.Hide();
                 MainForm mform = new MainForm();
-                mform.ShowDialog();                
+                mform.ShowDialog();
+                this.Show();
+            }
+        }
+
+        private void frmSplashScreen_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult drRes = MessageBox.Show("Are you sure you want to exit the application?", "Close Program?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (drRes == DialogResult.Yes)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
     }
